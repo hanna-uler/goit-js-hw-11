@@ -1,3 +1,10 @@
+// Описаний у документації
+import iziToast from "izitoast";
+// Додатковий імпорт стилів
+import "izitoast/dist/css/iziToast.min.css";
+
+// import function1Name from "./js/pixabay-api";
+// import function2Name from "./js/render-functions";
 
 
 const formEl = document.querySelector(".form");
