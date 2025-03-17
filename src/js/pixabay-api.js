@@ -1,6 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import axios from 'axios';
+import renderGallery from "./render-functions";
 
 
 export default function getPics(queryWords) {
@@ -27,6 +28,8 @@ export default function getPics(queryWords) {
                     position: "topRight",
                     timeout: 3000,
                 })
+            } else {
+                return renderGallery(response.data.hits);
             }
             })
     .catch(error => console.log(error));
