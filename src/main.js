@@ -13,8 +13,6 @@ formEl.addEventListener("submit", onSubmit);
 
 function onSubmit(event) {
     event.preventDefault();
-    let picsArray = [];
-    // console.log(event.currentTarget.searchText.value);
     if (event.currentTarget.searchText.value === "") {
         return iziToast.error({
             theme: 'dark',
@@ -26,16 +24,8 @@ function onSubmit(event) {
         })
     } else {
         const queryWords = event.currentTarget.searchText.value;
-        const picsArray = getPics(queryWords);
+        return getPics(queryWords);
     }
-    if (picsArray.length === 0) {
-      return iziToast.error({
-            theme: "dark",
-            message: "Sorry, there are no images matching your search query. Please try again!",
-            backgroundColor: "#EF4040",
-            closeOnClick: true,
-            position: "topRight",
-            timeout: 3000,
-        })  
-    }
+    
 };
+
