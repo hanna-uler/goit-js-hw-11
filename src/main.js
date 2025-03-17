@@ -23,8 +23,9 @@ function onSubmit(event) {
             timeout: 3000,
         })
     } else {
-        const queryWords = event.currentTarget.searchText.value;
-        return getPics(queryWords);
+        const queryWords = event.currentTarget.searchText.value.trim("");
+        getPics(queryWords);
+        event.currentTarget.searchText.value = "";
     }
     
 };

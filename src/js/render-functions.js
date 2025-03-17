@@ -32,5 +32,6 @@ const slGalleryOptions = {
   captionDelay: 250,
   captionsData: "alt",
 };
-let slGallery = new SimpleLightbox('.gallery a', slGalleryOptions);
+    let slGallery = new SimpleLightbox('.gallery a', slGalleryOptions);
+    slGallery.refresh();
 };
