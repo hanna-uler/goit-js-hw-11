@@ -2,19 +2,25 @@
 
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://pixabay.com"
 
-axios.get("/api/", {
-    params: {
-        key: 31908643 - 2178b12526c513c1beb381d6b,
-        q: "",
-        image_type: "photo",
-        orientation: "horizontal",
-        safesearch: true,
-    }
-})
-    .then(response => console.log(response))
+export default function getPics(queryWords) {
+    axios.defaults.baseURL = "https://pixabay.com"
+    return axios.get("/api/", {
+        params: {
+            key:"31908643-2178b12526c513c1beb381d6b",
+            q: queryWords,
+            image_type: "photo",
+            orientation: "horizontal",
+            safesearch: true,
+        }
+    })
+        .then(response => {
+            console.log(response);
+            console.log(response.data);
+            console.log(response.data.hits);
+        })
     .catch(error => console.log(error));
+};
 
 //     Pixabay resource:
 //     Example

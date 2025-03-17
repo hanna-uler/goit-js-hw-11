@@ -1,5 +1,6 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import getPics from "./js/pixabay-api";
 
 // import function1Name from "./js/pixabay-api";
 // import function2Name from "./js/render-functions";
@@ -13,17 +14,17 @@ formEl.addEventListener("submit", onSubmit);
 function onSubmit(event) {
     event.preventDefault();
     // console.log(event.currentTarget.searchText.value);
-if (event.currentTarget.searchText.value === "") {
-    return iziToast.error({
-                theme: 'dark',
-                message: `Please, fill out this field.`,
-                backgroundColor: '#EF4040',
-                closeOnClick: true,
-                position: 'topRight',
+    if (event.currentTarget.searchText.value === "") {
+        return iziToast.error({
+            theme: 'dark',
+            message: `Please, fill out this field.`,
+            backgroundColor: '#EF4040',
+            closeOnClick: true,
+            position: 'topRight',
             timeout: 3000,
         })
-// } else {
-    
-}
-    // some code
+    } else {
+        const queryWords = event.currentTarget.searchText.value;
+        getPics(queryWords);
+    }
 };
