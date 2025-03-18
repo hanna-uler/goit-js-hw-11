@@ -13,7 +13,7 @@ function onSubmit(event) {
     if (event.currentTarget.searchText.value === "") {
         return iziToast.error({
             theme: 'dark',
-            message: `Please, fill out this field.`,
+            message: "Please, fill out the search field.",
             backgroundColor: '#EF4040',
             closeOnClick: true,
             position: 'topRight',
