@@ -5,7 +5,7 @@ import renderGallery from "./render-functions";
 
 
 export default function getPics(queryWords) {
-    axios.defaults.baseURL = "https://pixabay.com"
+    axios.defaults.baseURL = "https://pixabay.com";
     axios.get("/api/", {
         params: {
             key: "31908643-2178b12526c513c1beb381d6b",
@@ -16,9 +16,6 @@ export default function getPics(queryWords) {
         }
     })
         .then(response => {
-            console.log(response);
-            console.log(response.data);
-            console.log(response.data.hits);
             if (response.data.hits.length === 0) {
                 return iziToast.error({
                     theme: "dark",
@@ -32,7 +29,7 @@ export default function getPics(queryWords) {
                 return renderGallery(response.data.hits);
             }
             })
-    .catch(error => console.log(error));
+        .catch(error => console.log(error));
 };
 
 //     Pixabay resource:
