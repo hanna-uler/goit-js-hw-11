@@ -1,8 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-// let picsArray = [];
-
 export default function renderGallery (picsArray) {
     const galleryEl = document.querySelector(".gallery");
     galleryEl.innerHTML = "";

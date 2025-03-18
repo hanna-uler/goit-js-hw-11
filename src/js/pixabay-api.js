@@ -3,6 +3,7 @@ import "izitoast/dist/css/iziToast.min.css";
 import axios from 'axios';
 import renderGallery from "./render-functions";
 
+const loaderEl = document.querySelector(".loader");
 
 export default function getPics(queryWords) {
     axios.defaults.baseURL = "https://pixabay.com";
@@ -26,6 +27,7 @@ export default function getPics(queryWords) {
                     timeout: 3000,
                 })
             } else {
+                loaderEl.classList.add("visually-hidden");
                 return renderGallery(response.data.hits);
             }
             })

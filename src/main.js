@@ -5,6 +5,7 @@ import getPics from "./js/pixabay-api";
 
 const formEl = document.querySelector(".form");
 const loaderEl = document.querySelector(".loader")
+const galleryEl = document.querySelector(".gallery");
 formEl.addEventListener("submit", onSubmit);
 
 function onSubmit(event) {
@@ -20,12 +21,10 @@ function onSubmit(event) {
         })
     } else {
         loaderEl.classList.remove("visually-hidden");
+        galleryEl.innerHTML = "";
         const queryWords = event.currentTarget.searchText.value.trim("");
         getPics(queryWords);
-        loaderEl.classList.add("visually-hidden");
         event.currentTarget.searchText.value = "";
-        // checking the loader
-        // setTimeout(() => { loaderEl.classList.add("visually-hidden") }, 3000);
     }
     
 };
