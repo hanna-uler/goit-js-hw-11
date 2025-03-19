@@ -46,8 +46,8 @@ function onSubmit(event) {
             .catch(error => {
                 return iziToast.error({
                     theme: "dark",
-                    title: "Error!"
-                    message: "Sorry, something went wrong."
+                    title: "Error!",
+                    message: "Sorry, something went wrong.",
                     backgroundColor: "#EF4040",
                     closeOnClick: true,
                     position: "topRight",
