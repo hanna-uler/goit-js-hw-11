@@ -1,9 +1,7 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+const galleryEl = document.querySelector(".gallery");
+
 
 export default function renderGallery (picsArray) {
-    const galleryEl = document.querySelector(".gallery");
-    galleryEl.innerHTML = "";
     const galleryMarkup = picsArray
         .map(image => `<li class="gallery-item"><a class="gallery-link" href="${image.largeImageURL}"><img class="gallery-image" src="${image.webformatURL}" alt="${image.tags}"/></a><ul class="img-info-list">
             <li class="img-info-item">
@@ -25,11 +23,9 @@ export default function renderGallery (picsArray) {
           </ul></li>`)
         .join("");
     
- galleryEl.insertAdjacentHTML("beforeend", galleryMarkup);   
-const slGalleryOptions = {
-  captionDelay: 250,
-  captionsData: "alt",
+    galleryEl.insertAdjacentHTML("beforeend", galleryMarkup); 
 };
-    let slGallery = new SimpleLightbox('.gallery a', slGalleryOptions);
-    slGallery.refresh();
+
+export function clearGallery() {
+    galleryEl.innerHTML = "";
 };
