@@ -43,7 +43,17 @@ function onSubmit(event) {
                     slGallery.refresh();
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                return iziToast.error({
+                    theme: "dark",
+                    title: "Error!"
+                    message: "Sorry, something went wrong."
+                    backgroundColor: "#EF4040",
+                    closeOnClick: true,
+                    position: "topRight",
+                    timeout: 3000,
+                    })
+            })
             .finally(() => {
             loaderEl.classList.add("visually-hidden");
         });
